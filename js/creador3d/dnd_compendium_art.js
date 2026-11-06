@@ -350,33 +350,27 @@
 
   function getSpellImageFilename(spell) {
     const n = `${spell.name || ''} ${spell.school || ''} ${spell.desc || ''}`.toLowerCase();
-    if (n.includes('fuego') || n.includes('ardiente') || n.includes('abrasador') || n.includes('meteorito') || n.includes('llama')) return 'spell_fire.png';
-    if (n.includes('escudo') || n.includes('armadura') || n.includes('muro') || n.includes('abjuración') || n.includes('contraconjuro')) return 'spell_shield.png';
-    if (n.includes('curar') || n.includes('curación') || n.includes('sanar') || n.includes('revivir') || n.includes('restauración') || n.includes('bendición') || n.includes('piedad')) return 'spell_heal.png';
-    if (n.includes('nigromancia') || n.includes('mortal') || n.includes('veneno') || n.includes('moribundo')) return 'spell_necro.png';
+    if (n.includes('fuego') || n.includes('ardiente') || n.includes('abrasador') || n.includes('meteorito') || n.includes('llama')) return 'hechizos/spell_fire.png';
+    if (n.includes('escudo') || n.includes('armadura') || n.includes('muro') || n.includes('abjuración') || n.includes('contraconjuro')) return 'hechizos/spell_shield.png';
+    if (n.includes('curar') || n.includes('curación') || n.includes('sanar') || n.includes('revivir') || n.includes('restauración') || n.includes('bendición') || n.includes('piedad')) return 'hechizos/spell_heal.png';
+    if (n.includes('nigromancia') || n.includes('mortal') || n.includes('veneno') || n.includes('moribundo')) return 'hechizos/spell_necro.png';
     return null;
   }
 
-  function getMonsterImageFilename(m) {
-    const id = (m.id || '').toLowerCase();
-    const t = (m.type || '').toLowerCase();
-    if (id.includes('dragon') || t.includes('dragón')) return 'monster_dragon.png';
-    if (id === 'beholder') return 'monster_beholder.png';
-    if (id === 'mimic') return 'monster_mimic.png';
-    if (id === 'mind_flayer') return 'monster_mindflayer.png';
-    return 'monster_dragon.png';
+  function getMonsterImageFilename() {
+    return null;
   }
 
   window.getDndClassArtSvg = function (classId) {
     const spec = CLASS_SILHOUETTES[classId] || CLASS_SILHOUETTES.fighter;
     const svg = wrapMedallionSvg(spec.p, spec.c, spec.g, spec.bg);
-    return wrapArtMedia(`${classId}.png`, svg, `Clase ${classId}`);
+    return wrapArtMedia(`clases/${classId}.png`, svg, `Clase ${classId}`);
   };
 
   window.getDndSpeciesArtSvg = function (speciesId) {
     const spec = SPECIES_SILHOUETTES[speciesId] || SPECIES_SILHOUETTES.human;
     const svg = wrapMedallionSvg(spec.p, spec.c, spec.g, spec.bg);
-    return wrapArtMedia(`${speciesId}.png`, svg, `Especie ${speciesId}`);
+    return wrapArtMedia(`razas/${speciesId}.png`, svg, `Especie ${speciesId}`);
   };
 
   window.getDndSpellArtSvg = function (spell) {
