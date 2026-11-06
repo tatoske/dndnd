@@ -1,0 +1,2106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ficha de Personaje Oficial D&D 5ta Edición (Español)</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- BARRA FLOTANTE DE ACCESO RÁPIDO (SIMPLIFICADA) -->
+  <aside class="curtain-floating-bar no-print">
+    <div class="floating-bar-left">
+      <button type="button" id="btn-open-curtain" class="btn btn-curtain-trigger"
+        title="Abrir Menú Lateral de Herramientas D&D">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <span>Menú</span>
+      </button>
+
+      <button type="button" id="btn-open-guide-nav" class="btn btn-guide-trigger"
+        title="Guía Interactiva Paso a Paso con Ejemplos (14 apartados)">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+        </svg>
+        <span>Guía</span>
+      </button>
+
+      <button type="button" id="btn-open-asi-nav" class="btn btn-outline"
+        style="font-size:0.8rem; font-weight:700; border-color:var(--border-dnd); color:var(--text-dark);"
+        title="Asignador y Calculadora de Atributos">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3" />
+          <path
+            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+        </svg>
+        <span>Atributos</span>
+      </button>
+
+      <button type="button" id="btn-open-compendium-nav" class="btn btn-compendium-trigger"
+        title="Abrir Creador 3D de Personaje: Raza, Sombra Antropomórfica, Clase, Hechizos y Turno">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        <span>Creador 3D</span>
+      </button>
+
+      <button type="button" id="btn-open-bestiary-nav" class="btn btn-bestiary-trigger"
+        title="Abrir Bestiario Oficial de Monstruos y Libros Oficiales">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L15 8L21 9L16.5 14L18 20L12 17L6 20L7.5 14L3 9L9 8L12 2Z"></path>
+        </svg>
+        <span>Bestiario</span>
+      </button>
+    </div>
+
+    <div class="floating-bar-right">
+      <button type="button" id="btn-return-sheet-top" class="btn btn-return-sheet-pill" style="display:none;"
+        title="Volver a ver las 3 páginas de la Ficha de Personaje">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        <span>Ficha Plana</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- BOTÓN FLOTANTE LATERAL DERECHO: MESA DE DADOS -->
+  <aside class="floating-dice-launcher no-print">
+    <button type="button" id="btn-floating-dice" class="btn-dice-floating"
+      title="Abrir Mesa de Tirada de Dados (Atajo: Tecla D)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="dice-floating-icon">
+        <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+        <line x1="12" y1="22" x2="12" y2="15.5"></line>
+        <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
+      </svg>
+      <span class="dice-floating-text">Tirar Dados</span>
+    </button>
+  </aside>
+
+  <!-- TELÓN / BACKDROP DE LA CORTINA LATERAL -->
+  <div id="sidebar-curtain-backdrop" class="sidebar-curtain-backdrop no-print"></div>
+
+  <!-- CORTINA LATERAL DESLIZABLE (SIDEBAR DRAWER) -->
+  <aside id="sidebar-curtain" class="sidebar-curtain no-print" aria-label="Menú Lateral D&D">
+    <div class="curtain-header">
+      <div class="curtain-brand-box">
+        <svg class="icon-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+        </svg>
+        <div>
+          <div class="curtain-brand-title">D&D 5ª EDICIÓN</div>
+          <div class="curtain-brand-sub">Panel de Herramientas</div>
+        </div>
+      </div>
+      <div class="curtain-header-actions">
+        <button type="button" id="btn-pin-curtain" class="btn-curtain-icon"
+          title="Fijar panel lateral en monitores grandes">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <line x1="12" y1="17" x2="12" y2="22"></line>
+            <path d="M5 17h14v-2l-2-2V5a1 1 0 0 0-1-1h-8a1 1 0 0 0-1 1v8l-2 2v2z"></path>
+          </svg>
+        </button>
+        <button type="button" id="btn-close-curtain" class="btn-curtain-icon" title="Cerrar panel lateral (Esc)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="curtain-scroll-content">
+      <!-- DESCANSO Y REGLAS 5.5e -->
+      <div class="curtain-section">
+        <span class="curtain-section-title">Descanso y Reglas 5.5e</span>
+        <div class="curtain-btn-stack">
+          <button type="button" id="btn-short-rest" class="btn btn-outline"
+            title="Descanso Corto (Gastar dados de golpe)">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            Descanso Corto (Curación)
+          </button>
+          <button type="button" id="btn-long-rest" class="btn btn-outline" title="Descanso Largo (Recuperar todo)">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            Descanso Largo (Restaurar)
+          </button>
+          <button type="button" id="btn-conditions-toggle" class="btn btn-outline"
+            title="Panel de Estados y Condiciones">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
+            Estados y Condiciones
+          </button>
+        </div>
+      </div>
+
+      <!-- GESTIÓN DEL PERSONAJE -->
+      <div class="curtain-section">
+        <span class="curtain-section-title">Gestión de la Ficha</span>
+        <div class="curtain-btn-stack">
+          <button type="button" id="btn-save" class="btn btn-primary" title="Guardar personaje">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+              <polyline points="17 21 17 13 7 13 7 21" />
+              <polyline points="7 3 7 8 15 8" />
+            </svg>
+            Guardar Ficha
+          </button>
+          <button type="button" id="btn-reset" class="btn btn-outline" title="Limpiar ficha a ceros">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+              <path d="M3 3v5h5" />
+            </svg>
+            Limpiar Ficha
+          </button>
+          <button type="button" id="btn-export-json" class="btn btn-outline" title="Exportar JSON">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Exportar Archivo JSON
+          </button>
+          <label for="input-import-json" class="btn btn-outline" title="Cargar JSON">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="17 8 12 3 7 8" />
+              <line x1="12" y1="3" x2="12" y2="15" />
+            </svg>
+            Importar Archivo JSON
+            <input type="file" id="input-import-json" accept=".json" style="display:none;">
+          </label>
+          <button type="button" id="btn-print" class="btn btn-outline" title="Imprimir PDF">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 6 2 18 2 18 9" />
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+              <rect x="6" y="14" width="12" height="8" />
+            </svg>
+            Imprimir Hoja Oficial (PDF)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="curtain-footer">
+      <span>D&D 5.5e (2024) Oficial</span>
+      <span>Cerrar con <kbd class="curtain-kbd">Esc</kbd></span>
+    </div>
+  </aside>
+
+  <!-- BARRA PLEGABLE DE CONDICIONES Y ESTADOS (D&D 5.5e) -->
+  <section id="conditions-panel" class="conditions-panel no-print" style="display: none;">
+    <div class="conditions-header">
+      <span class="conditions-title">ESTADOS Y CONDICIONES ACTIVAS (5.5e)</span>
+      <span class="conditions-hint">Selecciona para activar/desactivar y ver sus efectos en juego</span>
+    </div>
+    <div id="conditions-chips-grid" class="conditions-chips-grid"></div>
+    <div id="condition-active-desc" class="condition-active-desc">Haz clic en un estado para ver su descripción de
+      reglas oficiales.</div>
+  </section>
+
+  <!-- CONTENEDOR DE PÁGINAS OFICIALES -->
+  <div class="sheets-document" id="sheets-document">
+
+    <!-- =====================================================================
+         PÁGINA 1: FICHA PRINCIPAL DE COMBATE Y ESTADÍSTICAS
+         ===================================================================== -->
+    <article class="sheet-page active" id="page-1">
+
+      <!-- CABECERA PÁGINA 1 -->
+      <div class="dnd-header-frame">
+        <div class="dnd-logo-name-box">
+          <div class="dnd-brand-logo">
+            <span class="dnd-text-logo">DUNGEONS &amp; DRAGONS<sup>&reg;</sup></span>
+          </div>
+          <div class="dnd-char-name-slot">
+            <input type="text" id="char-name" class="input-char-name" placeholder="Nombre del Personaje" value="">
+            <span class="dnd-label-banner">NOMBRE DEL PERSONAJE</span>
+          </div>
+        </div>
+
+        <div class="dnd-header-details-box">
+          <!-- CLASE Y NIVEL CON MULTICLASE -->
+          <div class="header-field header-field-class-level">
+            <div class="class-level-composite">
+              <div class="class-row-primary">
+                <select id="char-class-1" class="select-header select-class">
+                  <option value="" disabled selected>Clase...</option>
+                  <option value="barbarian">Bárbaro</option>
+                  <option value="bard">Bardo</option>
+                  <option value="cleric">Clérigo</option>
+                  <option value="druid">Druida</option>
+                  <option value="fighter">Guerrero</option>
+                  <option value="monk">Monje</option>
+                  <option value="paladin">Paladín</option>
+                  <option value="ranger">Explorador</option>
+                  <option value="rogue">Pícaro</option>
+                  <option value="sorcerer">Hechicero</option>
+                  <option value="warlock">Brujo</option>
+                  <option value="wizard">Mago</option>
+                  <option value="custom">Personalizada</option>
+                </select>
+                <select id="char-level-1" class="select-header select-lvl" title="Nivel en clase principal">
+                  <option value="1" selected>1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                </select>
+                <button type="button" id="btn-toggle-multiclass" class="btn-multiclass-toggle"
+                  title="Añadir multiclase">+ Multi</button>
+              </div>
+              <div class="class-row-subclass">
+                <select id="char-subclass-1" class="select-header select-subclass" title="Subclase Oficial (Nivel 3+)">
+                  <option value="">Subclase (Se elige al Nvl 3)...</option>
+                </select>
+              </div>
+              <div id="multiclass-subrow" class="class-row-secondary" style="display: none;">
+                <select id="char-class-2" class="select-header select-class">
+                  <option value="" selected>Segunda clase...</option>
+                  <option value="barbarian">Bárbaro</option>
+                  <option value="bard">Bardo</option>
+                  <option value="cleric">Clérigo</option>
+                  <option value="druid">Druida</option>
+                  <option value="fighter">Guerrero</option>
+                  <option value="monk">Monje</option>
+                  <option value="paladin">Paladín</option>
+                  <option value="ranger">Explorador</option>
+                  <option value="rogue">Pícaro</option>
+                  <option value="sorcerer">Hechicero</option>
+                  <option value="warlock">Brujo</option>
+                  <option value="wizard">Mago</option>
+                  <option value="custom">Personalizada</option>
+                </select>
+                <select id="char-level-2" class="select-header select-lvl" title="Nivel en segunda clase">
+                  <option value="1" selected>1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                </select>
+                <button type="button" id="btn-remove-multiclass" class="btn-multiclass-del"
+                  title="Quitar multiclase">&times;</button>
+              </div>
+            </div>
+            <div class="dnd-label-line-flex">
+              <span class="dnd-label-line">CLASE Y NIVEL</span>
+              <span id="char-total-level-badge" class="badge-total-level">NIVEL 1</span>
+            </div>
+          </div>
+
+          <!-- TRASFONDO (5.5e) -->
+          <div class="header-field">
+            <select id="char-background" class="select-header">
+              <option value="" disabled selected>Seleccionar Trasfondo...</option>
+              <option value="acolyte">Acólito</option>
+              <option value="artisan">Artesano</option>
+              <option value="charlatan">Charlatán</option>
+              <option value="criminal">Criminal</option>
+              <option value="entertainer">Bufón / Artista</option>
+              <option value="farmer">Granjero</option>
+              <option value="guard">Guardia</option>
+              <option value="guide">Guía</option>
+              <option value="hermit">Ermitaño</option>
+              <option value="merchant">Mercader</option>
+              <option value="noble">Noble</option>
+              <option value="sage">Erudito</option>
+              <option value="sailor">Marinero</option>
+              <option value="scribe">Escriba</option>
+              <option value="soldier">Soldado</option>
+              <option value="wayfarer">Huérfano / Trotamundos</option>
+              <option value="custom">Personalizado</option>
+            </select>
+            <span class="dnd-label-line">TRASFONDO (5.5e)</span>
+          </div>
+
+          <!-- NOMBRE DEL JUGADOR -->
+          <div class="header-field">
+            <input type="text" id="char-player" placeholder="Nombre del Jugador" value="">
+            <span class="dnd-label-line">NOMBRE DEL JUGADOR</span>
+          </div>
+
+          <!-- ESPECIE / RAZA (5.5e) -->
+          <div class="header-field">
+            <select id="char-race" class="select-header">
+              <option value="" disabled selected>Seleccionar Especie...</option>
+              <option value="aasimar">Aasimar</option>
+              <option value="dragonborn">Dracónido</option>
+              <option value="dwarf">Enano</option>
+              <option value="elf">Elfo</option>
+              <option value="gnome">Gnomo</option>
+              <option value="goliath">Goliat</option>
+              <option value="halfling">Mediano</option>
+              <option value="human">Humano</option>
+              <option value="orc">Orco</option>
+              <option value="tiefling">Tiflin</option>
+              <option value="custom">Personalizada</option>
+            </select>
+            <span class="dnd-label-line">ESPECIE / RAZA (5.5e)</span>
+          </div>
+          <div class="header-field">
+            <select id="char-alignment" class="select-header">
+              <option value="" disabled selected>Seleccionar...</option>
+              <option value="Legal Bueno">Legal Bueno</option>
+              <option value="Neutral Bueno">Neutral Bueno</option>
+              <option value="Caótico Bueno">Caótico Bueno</option>
+              <option value="Legal Neutral">Legal Neutral</option>
+              <option value="Neutral Puro">Neutral Puro</option>
+              <option value="Caótico Neutral">Caótico Neutral</option>
+              <option value="Legal Malvado">Legal Malvado</option>
+              <option value="Neutral Malvado">Neutral Malvado</option>
+              <option value="Caótico Malvado">Caótico Malvado</option>
+            </select>
+            <span class="dnd-label-line">ALINEAMIENTO</span>
+          </div>
+          <div class="header-field header-field-xp-clean">
+            <div class="xp-clean-input-row">
+              <input type="number" id="char-xp" min="0" step="100" placeholder="0" value="0" title="Puntos de Experiencia">
+              <span id="xp-inline-target-pill" class="xp-inline-target-pill">/ 300 XP</span>
+            </div>
+            <span class="dnd-label-line">PUNTOS DE EXPERIENCIA</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BANNER DEDICADO DE PROGRESIÓN DE CLASE, GREMIO DE AVENTUREROS, MISIONES Y SUBIDA DE NIVEL -->
+      <section class="adventurer-progression-banner no-print" aria-label="Progresión de Nivel, Misiones y Rango de Aventurero">
+        <div class="adv-banner-rank-block">
+          <div class="adv-rank-shield-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <polygon points="12 7 13.5 10.5 17 11 14.5 13.5 15 17 12 15.2 9 17 9.5 13.5 7 11 10.5 10.5 12 7"></polygon>
+            </svg>
+          </div>
+          <div class="adv-rank-texts">
+            <span class="adv-rank-kicker">GREMIO DE AVENTUREROS</span>
+            <span id="adventurer-rank-badge" class="badge-adventurer-rank">Rango Cobre · Novato</span>
+          </div>
+        </div>
+
+        <div class="adv-banner-center-track">
+          <div class="adv-track-top-row">
+            <div class="adv-mode-segmented" role="group" aria-label="Modo de Progresión">
+              <button type="button" class="adv-mode-pill active" data-prog-mode-btn="xp">Por Experiencia (XP)</button>
+              <button type="button" class="adv-mode-pill" data-prog-mode-btn="quests">Por Misiones Completadas</button>
+              <select id="char-progression-mode" style="display:none;">
+                <option value="xp" selected>xp</option>
+                <option value="quests">quests</option>
+              </select>
+            </div>
+            <span id="adventurer-prog-status-text" class="adv-prog-status-label">Meta Nivel 2: 0 / 300 XP</span>
+          </div>
+          <div class="adventurer-prog-track" title="Progreso hacia el siguiente nivel">
+            <div id="adventurer-prog-bar-fill" class="adventurer-prog-bar-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <div class="adv-banner-actions">
+          <div id="prog-xp-controls" class="prog-inline-controls">
+            <button type="button" class="btn-prog-quick" data-add-xp="100" title="Sumar +100 XP">+100 XP</button>
+            <button type="button" class="btn-prog-quick" data-add-xp="500" title="Sumar +500 XP">+500 XP</button>
+            <button type="button" class="btn-prog-quick" data-add-xp="1000" title="Sumar +1000 XP">+1000 XP</button>
+          </div>
+          <div id="prog-quests-controls" class="prog-inline-controls" style="display: none;">
+            <label for="char-quests" class="quest-counter-label">Misiones:</label>
+            <input type="number" id="char-quests" class="quest-counter-input" min="0" step="1" value="0" title="Misiones completadas con éxito">
+            <button type="button" id="btn-add-quest" class="btn-prog-quick is-quest-btn" title="Registrar +1 Misión Completada">+1 Misión</button>
+          </div>
+          <button type="button" id="btn-open-guild-quests" class="btn-guild-board-trigger"
+            title="Abrir Tablón de Contratos del Gremio de Aventureros">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+            </svg>
+            <span>Tablón Misiones</span>
+          </button>
+          <button type="button" id="btn-open-guild-card" class="btn-guild-card-trigger"
+            title="Ver y Descargar tu Carnet Oficial del Gremio en PNG">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+              <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+              <circle cx="9" cy="10" r="2"></circle>
+              <path d="M15 8h2M15 12h2M7 16h10"></path>
+            </svg>
+            <span>Carnet PNG</span>
+          </button>
+          <button type="button" id="btn-open-levelup-wizard" class="btn-levelup-trigger"
+            title="Abrir Asistente Guiado para Subir de Nivel según tu Clase">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15">
+              <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+            <span class="lvlup-btn-label">Subir Nivel (+1)</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- CUERPO DE 3 COLUMNAS IDÉNTICO AL PDF -->
+      <div class="page-1-grid">
+
+        <!-- ==================== COLUMNA 1 ==================== -->
+        <div class="p1-col-1">
+
+          <!-- ATRIBUTOS Y BLOQUE DE SALVACIONES/HABILIDADES -->
+          <div class="attributes-and-skills-row">
+
+            <!-- TIRA VERTICAL DE ATRIBUTOS (FUE, DES, CON, INT, SAB, CAR) -->
+            <div class="attributes-strip">
+
+              <!-- FUERZA -->
+              <div class="attr-box" data-attr="str">
+                <span class="attr-title">FUERZA</span>
+                <input type="number" id="score-str" class="attr-score-input" min="1" max="30" value="10">
+                <div class="attr-modifier-bubble">
+                  <span id="mod-str">+0</span>
+                </div>
+              </div>
+
+              <!-- DESTREZA -->
+              <div class="attr-box" data-attr="dex">
+                <span class="attr-title">DESTREZA</span>
+                <input type="number" id="score-dex" class="attr-score-input" min="1" max="30" value="10">
+                <div class="attr-modifier-bubble">
+                  <span id="mod-dex">+0</span>
+                </div>
+              </div>
+
+              <!-- CONSTITUCIÓN -->
+              <div class="attr-box" data-attr="con">
+                <span class="attr-title">CONSTITUCIÓN</span>
+                <input type="number" id="score-con" class="attr-score-input" min="1" max="30" value="10">
+                <div class="attr-modifier-bubble">
+                  <span id="mod-con">+0</span>
+                </div>
+              </div>
+
+              <!-- INTELIGENCIA -->
+              <div class="attr-box" data-attr="int">
+                <span class="attr-title">INTELIGENCIA</span>
+                <input type="number" id="score-int" class="attr-score-input" min="1" max="30" value="10">
+                <div class="attr-modifier-bubble">
+                  <span id="mod-int">+0</span>
+                </div>
+              </div>
+
+              <!-- SABIDURÍA -->
+              <div class="attr-box" data-attr="wis">
+                <span class="attr-title">SABIDURÍA</span>
+                <input type="number" id="score-wis" class="attr-score-input" min="1" max="30" value="10">
+                <div class="attr-modifier-bubble">
+                  <span id="mod-wis">+0</span>
+                </div>
+              </div>
+
+              <!-- CARISMA -->
+              <div class="attr-box" data-attr="cha">
+                <span class="attr-title">CARISMA</span>
+                <input type="number" id="score-cha" class="attr-score-input" min="1" max="30" value="10">
+                <div class="attr-modifier-bubble">
+                  <span id="mod-cha">+0</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- BLOQUE DERECHO: INSPIRACIÓN, BONIFICADOR, SALVACIONES, HABILIDADES -->
+            <div class="skills-and-saves-subcol">
+
+              <!-- INSPIRACIÓN -->
+              <div class="flag-box inspiration-flag">
+                <input type="checkbox" id="char-inspiration" class="check-circle-lg">
+                <span class="flag-label">INSPIRACIÓN</span>
+              </div>
+
+              <!-- BONIFICADOR DE COMPETENCIA -->
+              <div class="flag-box proficiency-flag">
+                <div class="prof-bubble">
+                  <span class="prof-plus">+</span>
+                  <input type="number" id="char-proficiency-bonus" class="input-prof-val" min="1" max="10" value="2">
+                </div>
+                <span class="flag-label">BONIFICADOR DE COMPETENCIA</span>
+              </div>
+
+              <!-- TIRADAS DE SALVACIÓN (RELACIONADAS CON ATRIBUTOS) -->
+              <div class="bordered-box saves-box">
+                <div class="saves-items-list">
+                  <div class="save-row" data-attr="str">
+                    <input type="checkbox" id="save-prof-str" class="circle-check">
+                    <span class="stat-calc-num" id="save-val-str">+0</span>
+                    <label for="save-prof-str">Fuerza</label>
+                    <span class="origin-tag" id="origin-save-str"></span>
+                  </div>
+                  <div class="save-row" data-attr="dex">
+                    <input type="checkbox" id="save-prof-dex" class="circle-check">
+                    <span class="stat-calc-num" id="save-val-dex">+0</span>
+                    <label for="save-prof-dex">Destreza</label>
+                    <span class="origin-tag" id="origin-save-dex"></span>
+                  </div>
+                  <div class="save-row" data-attr="con">
+                    <input type="checkbox" id="save-prof-con" class="circle-check">
+                    <span class="stat-calc-num" id="save-val-con">+0</span>
+                    <label for="save-prof-con">Constitución</label>
+                    <span class="origin-tag" id="origin-save-con"></span>
+                  </div>
+                  <div class="save-row" data-attr="int">
+                    <input type="checkbox" id="save-prof-int" class="circle-check">
+                    <span class="stat-calc-num" id="save-val-int">+0</span>
+                    <label for="save-prof-int">Inteligencia</label>
+                    <span class="origin-tag" id="origin-save-int"></span>
+                  </div>
+                  <div class="save-row" data-attr="wis">
+                    <input type="checkbox" id="save-prof-wis" class="circle-check">
+                    <span class="stat-calc-num" id="save-val-wis">+0</span>
+                    <label for="save-prof-wis">Sabiduría</label>
+                    <span class="origin-tag" id="origin-save-wis"></span>
+                  </div>
+                  <div class="save-row" data-attr="cha">
+                    <input type="checkbox" id="save-prof-cha" class="circle-check">
+                    <span class="stat-calc-num" id="save-val-cha">+0</span>
+                    <label for="save-prof-cha">Carisma</label>
+                    <span class="origin-tag" id="origin-save-cha"></span>
+                  </div>
+                </div>
+                <div class="box-bottom-banner">TIRADAS DE SALVACIÓN</div>
+              </div>
+
+              <!-- HABILIDADES (RELACIONADAS CON ATRIBUTOS Y BONO) -->
+              <div class="bordered-box skills-box">
+                <div class="skills-items-list" id="skills-items-list">
+                  <!-- Generadas dinámicamente con checkboxes y atributos según PDF -->
+                </div>
+                <div class="box-bottom-banner">HABILIDADES</div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- SABIDURÍA PASIVA (PERCEPCIÓN = 10 + BONO PERCEPCIÓN) -->
+          <div class="passive-perception-capsule">
+            <div class="passive-circle">
+              <span id="passive-perception-val">10</span>
+            </div>
+            <span class="capsule-label">SABIDURÍA PASIVA (PERCEPCIÓN)</span>
+          </div>
+
+          <!-- OTRAS COMPETENCIAS E IDIOMAS -->
+          <div class="bordered-box prof-languages-box">
+            <div class="box-inner-header">
+              <span class="box-inner-hint">Idiomas, armaduras, armas y herramientas</span>
+              <button type="button" id="btn-add-proficiency" class="btn btn-xs btn-outline no-print">
+                <svg class="btn-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+                + Ítem
+              </button>
+            </div>
+
+            <div id="proficiencies-container" class="items-vertical-list"></div>
+
+            <textarea id="text-proficiencies-notes" class="textarea-subtle" rows="4"
+              placeholder="Párrafo adicional de competencias, idiomas o herramientas..."></textarea>
+
+            <div class="box-bottom-banner">OTRAS COMPETENCIAS E IDIOMAS</div>
+          </div>
+
+        </div>
+
+
+        <!-- ==================== COLUMNA 2 ==================== -->
+        <div class="p1-col-2">
+
+          <!-- TRÍO DE COMBATE: CA, INICIATIVA (AUTO-DEX), VELOCIDAD -->
+          <div class="combat-trio-row">
+
+            <!-- CLASE DE ARMADURA (BASE: 10 + MOD DESTREZA) -->
+            <div class="shield-stat-box">
+              <div class="shield-graphic">
+                <input type="number" id="stat-ac" class="input-stat-giant" min="0" max="99" value="10">
+              </div>
+              <span class="stat-banner-label">CLASE DE ARM.</span>
+            </div>
+
+            <!-- INICIATIVA (VINCULADA A DESTREZA) -->
+            <div class="octagonal-stat-box">
+              <input type="number" id="stat-initiative" class="input-stat-giant" value="0">
+              <span class="stat-banner-label">INICIATIVA</span>
+            </div>
+
+            <!-- VELOCIDAD -->
+            <div class="octagonal-stat-box">
+              <input type="number" id="stat-speed" class="input-stat-giant" min="0" step="5" value="30">
+              <span class="stat-banner-label">VELOCIDAD</span>
+            </div>
+
+          </div>
+
+          <!-- PUNTOS DE GOLPE ACTUALES -->
+          <div class="bordered-box hp-main-box">
+            <div class="hp-max-line">
+              <label for="hp-max">Puntos de Golpe Máximos</label>
+              <input type="number" id="hp-max" class="input-hp-max" min="0" max="999" value="0" placeholder="0">
+            </div>
+            <div class="hp-current-center">
+              <input type="number" id="hp-current" class="input-hp-current" min="0" max="999" value="0" placeholder="0">
+            </div>
+            <div class="box-bottom-banner">PUNTOS DE GOLPE ACTUALES</div>
+          </div>
+
+          <!-- PUNTOS DE GOLPE TEMPORALES -->
+          <div class="bordered-box hp-temp-box">
+            <input type="number" id="hp-temp" class="input-hp-temp" min="0" max="999" value="0">
+            <div class="box-bottom-banner">PUNTOS DE GOLPE TEMPORALES</div>
+          </div>
+
+          <!-- FILA COMPARTIDA: DADO DE GOLPE Y SALVACIONES DE MUERTE -->
+          <div class="hd-and-death-row">
+
+            <!-- DADO DE GOLPE -->
+            <div class="bordered-box hit-dice-box">
+              <div class="hd-total-line">
+                <label for="hd-total">Total</label>
+                <input type="text" id="hd-total" class="input-hd-total" placeholder="Ej: 1d8" value="">
+              </div>
+              <div class="hd-current-center">
+                <input type="number" id="hd-current" class="input-hd-avail" min="0" max="30" value="0">
+              </div>
+              <div class="box-bottom-banner">DADO DE GOLPE</div>
+            </div>
+
+            <!-- SALVACIONES DE MUERTE -->
+            <div class="bordered-box death-saves-box">
+              <div class="death-save-line">
+                <span class="death-title">ÉXITOS</span>
+                <div class="death-circles-wrap">
+                  <input type="checkbox" id="death-success-1" class="circle-check-success">
+                  <input type="checkbox" id="death-success-2" class="circle-check-success">
+                  <input type="checkbox" id="death-success-3" class="circle-check-success">
+                </div>
+              </div>
+              <div class="death-save-line">
+                <span class="death-title">FALLOS</span>
+                <div class="death-circles-wrap">
+                  <input type="checkbox" id="death-fail-1" class="circle-check-fail">
+                  <input type="checkbox" id="death-fail-2" class="circle-check-fail">
+                  <input type="checkbox" id="death-fail-3" class="circle-check-fail">
+                </div>
+              </div>
+              <div class="box-bottom-banner">SALVACIONES DE MUERTE</div>
+            </div>
+
+          </div>
+
+          <!-- RASTREADOR INTERACTIVO DE RECURSOS TÁCTICOS DE CLASE EN COMBATE -->
+          <div class="bordered-box class-resources-box no-print">
+            <div id="class-resources-tracker" class="class-resources-tracker"></div>
+            <div class="box-bottom-banner">RECURSOS TÁCTICOS DE CLASE (SE RECARGAN EN DESCANSO)</div>
+          </div>
+
+          <!-- ATAQUES Y CONJUROS -->
+          <div class="bordered-box attacks-spellcasting-box">
+            <div class="box-inner-header">
+              <div class="attacks-table-head">
+                <span class="th-name">NOMBRE</span>
+                <span class="th-bonus">BONIF. ATAQUE</span>
+                <span class="th-dmg">DAÑO / TIPO</span>
+                <span class="th-act"></span>
+              </div>
+              <div class="attacks-head-actions">
+                <button type="button" id="btn-compendium-weapon" class="btn btn-xs btn-secondary no-print"
+                  title="Elegir arma oficial del Compendio 5.5e">
+                  Compendio 5.5e
+                </button>
+                <button type="button" id="btn-add-attack" class="btn btn-xs btn-outline no-print">
+                  <svg class="btn-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                  + Arma
+                </button>
+              </div>
+            </div>
+
+            <div id="attacks-container" class="attacks-list"></div>
+
+            <textarea id="combat-notes" class="textarea-combat-notes" rows="4"
+              placeholder="Notas de combate, propiedades de armas, conjuros o trucos..."></textarea>
+
+            <div class="box-bottom-banner">ATAQUES Y CONJUROS</div>
+          </div>
+
+          <!-- EQUIPO Y MONEDAS -->
+          <div class="bordered-box equipment-box">
+
+            <div class="equipment-layout">
+
+              <!-- MONEDAS VERTICALES EN CEROS -->
+              <div class="coins-vertical-strip">
+                <div class="coin-capsule">
+                  <span class="coin-name">PC</span>
+                  <input type="number" id="coin-cp" class="input-coin" min="0" value="0">
+                </div>
+                <div class="coin-capsule">
+                  <span class="coin-name">PP</span>
+                  <input type="number" id="coin-sp" class="input-coin" min="0" value="0">
+                </div>
+                <div class="coin-capsule">
+                  <span class="coin-name">PE</span>
+                  <input type="number" id="coin-ep" class="input-coin" min="0" value="0">
+                </div>
+                <div class="coin-capsule gold-capsule">
+                  <span class="coin-name">PO</span>
+                  <input type="number" id="coin-gp" class="input-coin" min="0" value="0">
+                </div>
+                <div class="coin-capsule">
+                  <span class="coin-name">PPT</span>
+                  <input type="number" id="coin-pp" class="input-coin" min="0" value="0">
+                </div>
+              </div>
+
+              <!-- CONTENEDOR DE OBJETOS -->
+              <div class="equipment-items-pane">
+                <div class="inventory-controls-bar">
+                  <span class="weight-badge">Peso: <strong id="inventory-total-weight">0.0 lb</strong></span>
+                  <div class="inventory-quick-btns no-print">
+                    <button type="button" id="btn-equip-starter-pack" class="btn btn-xs btn-secondary"
+                      title="Equipar armas, armadura, mochila y oro inicial de tu Clase con 1 clic">
+                      Paquete Inicial
+                    </button>
+                    <button type="button" id="btn-open-merchant-shop" class="btn btn-xs btn-primary"
+                      title="Abrir Tienda del Mercader y Armería Oficial">
+                      Tienda / Armería
+                    </button>
+                    <button type="button" id="btn-add-inventory-item" class="btn btn-xs btn-outline">
+                      <svg class="btn-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                      </svg>
+                      + Objeto
+                    </button>
+                  </div>
+                </div>
+
+                <div class="inventory-table-head">
+                  <span>CANT.</span>
+                  <span>OBJETO</span>
+                  <span>PESO</span>
+                  <span></span>
+                </div>
+
+                <div id="inventory-container" class="inventory-table-list"></div>
+
+                <textarea id="text-equipment-free" class="textarea-subtle" rows="4"
+                  placeholder="Párrafo libre de equipo, reliquias o mochila..."></textarea>
+              </div>
+
+            </div>
+
+            <div class="box-bottom-banner">EQUIPO</div>
+          </div>
+
+        </div>
+
+
+        <!-- ==================== COLUMNA 3 ==================== -->
+        <div class="p1-col-3">
+
+          <div class="bordered-box role-block-box">
+            <textarea id="text-traits" class="textarea-role" rows="4"
+              placeholder="Rasgos de personalidad..."></textarea>
+            <div class="box-bottom-banner">RASGOS DE PERSONALIDAD</div>
+          </div>
+
+          <div class="bordered-box role-block-box">
+            <textarea id="text-ideals" class="textarea-role" rows="3" placeholder="Ideales..."></textarea>
+            <div class="box-bottom-banner">IDEALES</div>
+          </div>
+
+          <div class="bordered-box role-block-box">
+            <textarea id="text-bonds" class="textarea-role" rows="3" placeholder="Vínculos..."></textarea>
+            <div class="box-bottom-banner">VÍNCULOS</div>
+          </div>
+
+          <div class="bordered-box role-block-box">
+            <textarea id="text-flaws" class="textarea-role" rows="3" placeholder="Defectos..."></textarea>
+            <div class="box-bottom-banner">DEFECTOS</div>
+          </div>
+
+          <div class="bordered-box features-traits-box">
+            <textarea id="text-features" class="textarea-features" rows="22"
+              placeholder="Escribe aquí en párrafos tus rasgos de clase, dotes, sentidos y capacidades pasivas..."></textarea>
+            <div class="box-bottom-banner">RASGOS Y ATRIBUTOS</div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <footer class="sheet-footer-credits">
+        TM &amp; &copy; 2014 Wizards of the Coast LLC. Hoja adaptada en HTML interactivo en tonos claros para juego de
+        rol.
+      </footer>
+    </article>
+
+
+    <!-- =====================================================================
+         PÁGINA 2: APARIENCIA, HISTORIA DEL PERSONAJE Y ALIADOS
+         ===================================================================== -->
+    <article class="sheet-page" id="page-2">
+
+      <!-- CABECERA PÁGINA 2 -->
+      <div class="dnd-header-frame p2-header">
+        <div class="p2-name-box">
+          <div class="p2-mini-logo">
+            <span class="dnd-text-logo-sm">D&amp;D</span>
+          </div>
+          <div class="dnd-char-name-slot">
+            <input type="text" id="p2-char-name" class="input-char-name" placeholder="Nombre del Personaje" value="">
+            <span class="dnd-label-banner">NOMBRE DEL PERSONAJE</span>
+          </div>
+        </div>
+
+        <div class="p2-details-grid">
+          <div class="header-field">
+            <input type="number" id="app-age" min="0" max="9999" value="0">
+            <span class="dnd-label-line">EDAD</span>
+          </div>
+          <div class="header-field">
+            <input type="text" id="app-height" placeholder="Ej: 1.75 m" value="">
+            <span class="dnd-label-line">ALTURA</span>
+          </div>
+          <div class="header-field">
+            <input type="text" id="app-weight" placeholder="Ej: 70 kg" value="">
+            <span class="dnd-label-line">PESO</span>
+          </div>
+          <div class="header-field">
+            <input type="text" id="app-eyes" placeholder="Color" value="">
+            <span class="dnd-label-line">OJOS</span>
+          </div>
+          <div class="header-field">
+            <input type="text" id="app-skin" placeholder="Tono" value="">
+            <span class="dnd-label-line">PIEL</span>
+          </div>
+          <div class="header-field">
+            <input type="text" id="app-hair" placeholder="Estilo / Color" value="">
+            <span class="dnd-label-line">CABELLO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CUERPO DE 2 COLUMNAS SEGÚN PDF PÁG 2 -->
+      <div class="page-2-grid">
+
+        <!-- COLUMNA IZQUIERDA -->
+        <div class="p2-col-left">
+
+          <!-- RETRATO / TOKEN DE PERSONAJE -->
+          <div class="bordered-box p2-portrait-box">
+            <div class="portrait-container">
+              <div class="portrait-image-wrapper" id="portrait-image-wrapper">
+                <img id="char-portrait-img" src="" alt="Retrato del personaje" style="display: none;">
+                <div id="portrait-placeholder" class="portrait-placeholder">
+                  <svg class="portrait-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.5">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                  <span>Haz clic para subir retrato / token</span>
+                </div>
+              </div>
+              <input type="file" id="input-portrait-file" accept="image/*" style="display: none;">
+              <div class="portrait-actions no-print">
+                <label for="input-portrait-file" class="btn btn-xs btn-outline">Subir Imagen</label>
+                <button type="button" id="btn-remove-portrait" class="btn btn-xs btn-outline"
+                  style="display: none;">Quitar</button>
+              </div>
+            </div>
+            <div class="box-bottom-banner">RETRATO / TOKEN DEL PERSONAJE</div>
+          </div>
+
+          <div class="bordered-box p2-appearance-box">
+            <div class="appearance-content-wrap">
+              <textarea id="text-appearance" class="textarea-lined" rows="14"
+                placeholder="Descripción física completa, vestimenta, rasgos distintivos, cicatrices o detalles..."></textarea>
+            </div>
+            <div class="box-bottom-banner">APARIENCIA DEL PERSONAJE</div>
+          </div>
+
+          <div class="bordered-box p2-backstory-box">
+            <textarea id="text-backstory" class="textarea-lined" rows="22"
+              placeholder="Biografía, origen, motivos para aventurarse y hechos memorables..."></textarea>
+            <div class="box-bottom-banner">HISTORIA DEL PERSONAJE</div>
+          </div>
+
+        </div>
+
+        <!-- COLUMNA DERECHA -->
+        <div class="p2-col-right">
+
+          <div class="bordered-box p2-allies-box">
+            <div class="allies-layout">
+              <textarea id="text-allies" class="textarea-lined allies-text" rows="10"
+                placeholder="Facciones, contactos, deidades y aliados..."></textarea>
+              <div class="allies-symbol-box">
+                <input type="text" id="faction-name" class="input-symbol-name" placeholder="NOMBRE" value="">
+                <div class="symbol-draw-placeholder">
+                  <svg class="symbol-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10" />
+                    <polygon points="12 6 15 11 20 12 16 16 17 21 12 18 7 21 8 16 4 12 9 11 12 6" />
+                  </svg>
+                </div>
+                <span class="symbol-label">SÍMBOLO</span>
+              </div>
+            </div>
+            <div class="box-bottom-banner">ALIADOS Y ORGANIZACIONES</div>
+          </div>
+
+          <div class="bordered-box p2-extra-traits-box">
+            <textarea id="text-extra-traits" class="textarea-lined" rows="14"
+              placeholder="Dotes adicionales, bendiciones, pactos o notas suplementarias..."></textarea>
+            <div class="box-bottom-banner">RASGOS Y ATRIBUTOS ADICIONALES</div>
+          </div>
+
+          <div class="bordered-box p2-treasure-box">
+            <textarea id="text-treasure" class="textarea-lined" rows="12"
+              placeholder="Objetos mágicos, gemas, reliquias y botín valioso..."></textarea>
+            <div class="box-bottom-banner">TESORO</div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <footer class="sheet-footer-credits">
+        TM &amp; &copy; 2014 Wizards of the Coast LLC. Página 2 adaptada para roleplay e historial.
+      </footer>
+    </article>
+
+
+    <!-- =====================================================================
+         PÁGINA 3: HOJA DE CONJUROS (SPELLCASTING SHEET)
+         ===================================================================== -->
+    <article class="sheet-page" id="page-3">
+
+      <!-- CABECERA PÁGINA 3 -->
+      <div class="dnd-header-frame p3-header">
+        <div class="p3-class-box">
+          <div class="dnd-brand-logo-spells">
+            <span class="dnd-text-logo-sm">D&amp;D</span>
+          </div>
+          <div class="p3-class-slot">
+            <input type="text" id="spell-class" class="input-char-name" placeholder="Ej: Mago, Clérigo..." value="">
+            <span class="dnd-label-banner">CLASE LANZADORA DE CONJUROS</span>
+          </div>
+        </div>
+
+        <div class="p3-stats-trio">
+          <div class="octagonal-stat-box p3-box">
+            <select id="spell-ability" class="select-spell-attr">
+              <option value="int" selected>INT</option>
+              <option value="wis">SAB</option>
+              <option value="cha">CAR</option>
+            </select>
+            <span class="stat-banner-label">CARACTERÍSTICA DE LANZAMIENTO</span>
+          </div>
+
+          <!-- SALVACIÓN (8 + BONO + MOD) -->
+          <div class="octagonal-stat-box p3-box">
+            <span class="stat-calc-giant" id="spell-save-dc">10</span>
+            <span class="stat-banner-label">SALVACIÓN DE CONJURO</span>
+          </div>
+
+          <!-- ATAQUE (BONO + MOD) -->
+          <div class="octagonal-stat-box p3-box">
+            <span class="stat-calc-giant" id="spell-attack-bonus">+2</span>
+            <span class="stat-banner-label">BONIFICADOR DE ATAQUE DE CONJURO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACCIONES DE CONJUROS -->
+      <div class="spells-actions-bar no-print">
+        <span class="spells-help-text">Gestiona los espacios totales/gastados y añade conjuros con el botón
+          superior.</span>
+        <div class="spells-bar-btns">
+          <button type="button" id="btn-compendium-spells" class="btn btn-sm btn-secondary"
+            title="Compendio Oficial de Trucos y Conjuros">
+            Compendio Conjuros
+          </button>
+          <button type="button" id="btn-add-spell" class="btn btn-sm btn-primary">
+            <svg class="btn-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+            + Añadir Conjuro
+          </button>
+        </div>
+      </div>
+
+      <!-- CUERPO DE 3 COLUMNAS IDÉNTICO AL PDF PÁG 3 -->
+      <div class="page-3-grid">
+
+        <!-- ==================== COLUMNA 1 ==================== -->
+        <div class="p3-col">
+
+          <div class="spell-level-card">
+            <div class="spell-level-header">
+              <div class="spell-badge-number">0</div>
+              <span class="spell-level-name">TRUCOS</span>
+            </div>
+            <div class="spells-slot-list" id="spells-list-0"></div>
+          </div>
+
+          <div class="spell-level-card">
+            <div class="spell-level-header with-slots">
+              <div class="spell-badge-number">1</div>
+              <div class="spell-slots-tracker">
+                <div class="slot-val-box">
+                  <label for="slot-1-total">TOTALES</label>
+                  <input type="number" id="slot-1-total" min="0" max="10" value="0">
+                </div>
+                <div class="slot-val-box">
+                  <label for="slot-1-used">GASTADOS</label>
+                  <input type="number" id="slot-1-used" min="0" max="10" value="0">
+                </div>
+              </div>
+            </div>
+            <div class="spells-slot-list" id="spells-list-1"></div>
+          </div>
+
+          <div class="spell-level-card">
+            <div class="spell-level-header with-slots">
+              <div class="spell-badge-number">2</div>
+              <div class="spell-slots-tracker">
+                <div class="slot-val-box">
+                  <label for="slot-2-total">TOTALES</label>
+                  <input type="number" id="slot-2-total" min="0" max="10" value="0">
+                </div>
+                <div class="slot-val-box">
+                  <label for="slot-2-used">GASTADOS</label>
+                  <input type="number" id="slot-2-used" min="0" max="10" value="0">
+                </div>
+              </div>
+            </div>
+            <div class="spells-slot-list" id="spells-list-2"></div>
+          </div>
+
+        </div>
+
+        <!-- ==================== COLUMNA 2 ==================== -->
+        <div class="p3-col">
+
+          <div class="spell-level-card">
+            <div class="spell-level-header with-slots">
+              <div class="spell-badge-number">3</div>
+              <div class="spell-slots-tracker">
+                <div class="slot-val-box">
+                  <label for="slot-3-total">TOTALES</label>
+                  <input type="number" id="slot-3-total" min="0" max="10" value="0">
+                </div>
+                <div class="slot-val-box">
+                  <label for="slot-3-used">GASTADOS</label>
+                  <input type="number" id="slot-3-used" min="0" max="10" value="0">
+                </div>
+              </div>
+            </div>
+            <div class="spells-slot-list" id="spells-list-3"></div>
+          </div>
+
+          <div class="spell-level-card">
+            <div class="spell-level-header with-slots">
+              <div class="spell-badge-number">4</div>
+              <div class="spell-slots-tracker">
+                <div class="slot-val-box">
+                  <label for="slot-4-total">TOTALES</label>
+                  <input type="number" id="slot-4-total" min="0" max="10" value="0">
+                </div>
+                <div class="slot-val-box">
+                  <label for="slot-4-used">GASTADOS</label>
+                  <input type="number" id="slot-4-used" min="0" max="10" value="0">
+                </div>
+              </div>
+            </div>
+            <div class="spells-slot-list" id="spells-list-4"></div>
+          </div>
+
+          <div class="spell-level-card">
+            <div class="spell-level-header with-slots">
+              <div class="spell-badge-number">5</div>
+              <div class="spell-slots-tracker">
+                <div class="slot-val-box">
+                  <label for="slot-5-total">TOTALES</label>
+                  <input type="number" id="slot-5-total" min="0" max="10" value="0">
+                </div>
+                <div class="slot-val-box">
+                  <label for="slot-5-used">GASTADOS</label>
+                  <input type="number" id="slot-5-used" min="0" max="10" value="0">
+                </div>
+              </div>
+            </div>
+            <div class="spells-slot-list" id="spells-list-5"></div>
+          </div>
+
+        </div>
+
+        <!-- ==================== COLUMNA 3 ==================== -->
+        <div class="p3-col">
+
+          <div class="spell-level-card">
+            <div class="spell-level-header with-slots">
+              <div class="spell-badge-number">6</div>
+              <div class="spell-slots-tracker">
+                <div class="slot-val-box">
+                  <label for="slot-6-total">TOTALES</label>
+                  <input type="number" id="slot-6-total" min="0" max="10" value="0">
+                </div>
+                <div class="slot-val-box">
+                  <label for="slot-6-used">GASTADOS</label>
+                  <input type="number" id="slot-6-used" min="0" max="10" value="0">
+                </div>
+              </div>
+            </div>
+            <div class="spells-slot-list" id="spells-list-6"></div>
+          </div>
+
+          <div class="spell-level-card">
+            <div class="spell-level-header with-slots">
+              <div class="spell-badge-number">7</div>
+              <div class="spell-slots-tracker">
+                <div class="slot-val-box">
+                  <label for="slot-7-total">TOTALES</label>
+                  <input type="number" id="slot-7-total" min="0" max="10" value="0">
+                </div>
+                <div class="slot-val-box">
+                  <label for="slot-7-used">GASTADOS</label>
+                  <input type="number" id="slot-7-used" min="0" max="10" value="0">
+                </div>
+              </div>
+            </div>
+            <div class="spells-slot-list" id="spells-list-7"></div>
+          </div>
+
+          <div class="spell-level-card">
+            <div class="spell-level-header with-slots">
+              <div class="spell-badge-number">8</div>
+              <div class="spell-slots-tracker">
+                <div class="slot-val-box">
+                  <label for="slot-8-total">TOTALES</label>
+                  <input type="number" id="slot-8-total" min="0" max="10" value="0">
+                </div>
+                <div class="slot-val-box">
+                  <label for="slot-8-used">GASTADOS</label>
+                  <input type="number" id="slot-8-used" min="0" max="10" value="0">
+                </div>
+              </div>
+            </div>
+            <div class="spells-slot-list" id="spells-list-8"></div>
+          </div>
+
+          <div class="spell-level-card">
+            <div class="spell-level-header with-slots">
+              <div class="spell-badge-number">9</div>
+              <div class="spell-slots-tracker">
+                <div class="slot-val-box">
+                  <label for="slot-9-total">TOTALES</label>
+                  <input type="number" id="slot-9-total" min="0" max="10" value="0">
+                </div>
+                <div class="slot-val-box">
+                  <label for="slot-9-used">GASTADOS</label>
+                  <input type="number" id="slot-9-used" min="0" max="10" value="0">
+                </div>
+              </div>
+            </div>
+            <div class="spells-slot-list" id="spells-list-9"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <footer class="sheet-footer-credits">
+        TM &amp; &copy; 2014 Wizards of the Coast LLC. Hoja de Conjuros oficial adaptada.
+      </footer>
+    </article>
+
+  </div>
+
+  <!-- APARTADO DE CREADOR 3D Y COMPENDIO OFICIAL D&D (PESTAÑA 1: CREADOR 3D · PESTAÑA 2: MONSTRUOS Y LIBROS) -->
+  <section id="dnd-compendium-view" class="dnd-compendium-view no-print" style="display: none;"
+    aria-label="Creador 3D y Compendio D&D">
+    <header class="compendium-hero-header">
+      <div class="compendium-hero-top">
+        <div class="compendium-brand-block">
+          <div class="compendium-emblem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <div>
+            <h1 class="compendium-main-title">CREADOR 3D Y COMPENDIO D&amp;D</h1>
+            <p class="compendium-main-subtitle">Personajes, Hechizos y Bestiario Oficial</p>
+          </div>
+        </div>
+        <button type="button" id="btn-close-compendium-view" class="btn btn-close-compendium">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          <span>Ficha Plana</span>
+        </button>
+      </div>
+
+      <!-- 2 PESTAÑAS PRINCIPALES -->
+      <div class="compendium-main-tabs" role="tablist">
+        <button type="button" class="comp-main-tab active" data-comp-tab="player" role="tab" aria-selected="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+          <div class="comp-tab-txt">
+            <span class="comp-tab-title">1. Creador 3D de Personaje</span>
+            <span class="comp-tab-sub">Raza · Clase · Hechizos · Turno</span>
+          </div>
+        </button>
+        <button type="button" class="comp-main-tab" data-comp-tab="bestiary" role="tab" aria-selected="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+            <path d="M12 2L15 8L21 9L16.5 14L18 20L12 17L6 20L7.5 14L3 9L9 8L12 2Z"></path>
+          </svg>
+          <div class="comp-tab-txt">
+            <span class="comp-tab-title">2. Bestiario y Libros</span>
+            <span class="comp-tab-sub">Monstruos · Manuales · Objetos Mágicos</span>
+          </div>
+        </button>
+      </div>
+    </header>
+
+    <!-- =======================================================================
+         PESTAÑA 1: CREADOR 3D DE PERSONAJE, GALERÍA DE FICHAS PLANAS Y ESPACIOS DE CONJURO
+         ======================================================================= -->
+    <div id="comp-tab-panel-player" class="comp-tab-panel active">
+
+      <!-- BARRA SUPERIOR DE SINCRONIZACIÓN DE PERSONAJE, GUARDADO Y VER TODAS LAS FICHAS -->
+      <div class="comp-character-sync-bar">
+        <div class="comp-sync-left">
+          <span class="comp-sync-badge">CREADOR 3D</span>
+          <label for="comp-char-roster-select" class="comp-sync-label">PERSONAJE:</label>
+          <select id="comp-char-roster-select" class="comp-char-select">
+            <option value="live_sheet">Ficha Actual (En Vivo)</option>
+          </select>
+          <button type="button" id="btn-save-char-to-roster" class="btn-save-roster"
+            title="Guardar la ficha actual con su imagen de ficha plana en la galería">
+            + Guardar Ficha
+          </button>
+          <button type="button" id="btn-toggle-all-sheets-gallery" class="btn-view-all-sheets"
+            title="Ver todas las fichas guardadas con sus imágenes de la ficha plana">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Mis Fichas</span>
+            <span id="badge-saved-sheets-count" class="saved-sheets-count-pill">0</span>
+          </button>
+        </div>
+
+        <div class="comp-sync-right">
+          <span id="comp-adventurer-rank-badge" class="badge-adventurer-rank">Rango Cobre · Novato</span>
+          <div class="comp-level-picker-box">
+            <label for="comp-altar-level-select">NIVEL:</label>
+            <select id="comp-altar-level-select" class="comp-level-select">
+              <option value="1">Nivel 1</option><option value="2">Nivel 2</option><option value="3">Nivel 3</option>
+              <option value="4">Nivel 4</option><option value="5">Nivel 5</option><option value="6">Nivel 6</option>
+              <option value="7">Nivel 7</option><option value="8">Nivel 8</option><option value="9">Nivel 9</option>
+              <option value="10">Nivel 10</option><option value="11">Nivel 11</option><option value="12">Nivel 12</option>
+              <option value="13">Nivel 13</option><option value="14">Nivel 14</option><option value="15">Nivel 15</option>
+              <option value="16">Nivel 16</option><option value="17">Nivel 17</option><option value="18">Nivel 18</option>
+              <option value="19">Nivel 19</option><option value="20">Nivel 20</option>
+            </select>
+          </div>
+          <button type="button" id="btn-comp-levelup-wizard" class="btn-levelup-trigger"
+            title="Abrir Asistente para Subir de Nivel según tu Clase">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14">
+              <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+            <span class="lvlup-btn-label">Subir Nivel (+1)</span>
+          </button>
+          <button type="button" id="btn-sync-altar-to-sheet" class="btn-sync-sheet">
+            Aplicar a Ficha
+          </button>
+        </div>
+      </div>
+
+      <!-- GALERÍA DESPLEGABLE DE TODAS LAS FICHAS GUARDADAS CON SUS IMÁGENES DE LA FICHA PLANA -->
+      <section id="comp-all-sheets-gallery-drawer" class="comp-all-sheets-gallery-drawer" style="display: none;"
+        aria-label="Galería de Todas las Fichas Guardadas">
+        <div class="all-sheets-drawer-header">
+          <div>
+            <span class="stage-step-pill is-gold">ARCHIVO VISUAL DE PERSONAJES</span>
+            <h2 class="all-sheets-drawer-title">Todas las Fichas Guardadas (Vista de Ficha Plana)</h2>
+            <p class="all-sheets-drawer-sub">Aquí se guardan tus personajes creados con la imagen en miniatura de su
+              ficha plana, atributos, retrato y estadísticas.</p>
+          </div>
+          <div class="all-sheets-drawer-actions">
+            <button type="button" id="btn-save-sheet-from-drawer" class="btn-save-roster">
+              + Guardar Ficha Plana Actual Aquí
+            </button>
+            <button type="button" id="btn-close-all-sheets-gallery" class="btn-close-sheets-drawer">
+              Cerrar Galería
+            </button>
+          </div>
+        </div>
+        <div id="comp-saved-sheets-grid" class="comp-saved-sheets-grid"></div>
+      </section>
+
+      <!-- ESCENARIO INTERACTIVO DE 3 COLUMNAS: RAZA (IZQ) · SOMBRA ANTROPOMÓRFICA (CENTRO) · CLASE (DER) -->
+      <div class="comp-dynamic-stage-3col">
+
+        <!-- COLUMNA IZQUIERDA: ESCOGE TU RAZA / ESPECIE -->
+        <aside class="comp-stage-column comp-col-race">
+          <div class="comp-col-header">
+            <span class="comp-col-step">PASO 1</span>
+            <h2 class="comp-col-title">ESCOGE TU RAZA</h2>
+          </div>
+          <!-- GRILLA COMPACTA DE LAS 10 RAZAS CON SUS IMÁGENES -->
+          <div id="comp-race-picker-grid" class="comp-visual-picker-grid"></div>
+          <!-- CUADRO DE INFORMACIÓN DE LA RAZA SELECCIONADA ABAJO -->
+          <div id="comp-selected-race-detail" class="comp-selected-detail-box"></div>
+        </aside>
+
+        <!-- COLUMNA CENTRAL: SOMBRA ANTROPOMÓRFICA DINÁMICA Y RESUMEN DE FUSIÓN -->
+        <main class="comp-stage-column comp-col-shadow">
+          <div id="comp-anthropomorphic-stage" class="comp-anthropomorphic-stage"></div>
+        </main>
+
+        <!-- COLUMNA DERECHA: ESCOGE TU CLASE -->
+        <aside class="comp-stage-column comp-col-class">
+          <div class="comp-col-header">
+            <span class="comp-col-step">PASO 2</span>
+            <h2 class="comp-col-title">ESCOGE TU CLASE</h2>
+          </div>
+          <!-- GRILLA COMPACTA DE LAS 12 CLASES CON SUS IMÁGENES -->
+          <div id="comp-class-picker-grid" class="comp-visual-picker-grid"></div>
+          <!-- CUADRO DE INFORMACIÓN DE LA CLASE SELECCIONADA ABAJO -->
+          <div id="comp-selected-class-detail" class="comp-selected-detail-box"></div>
+        </aside>
+
+      </div>
+
+      <!-- PANEL INFERIOR DINÁMICO: ESPACIOS DE CONJURO INTERCAMBIABLES Y TURNO DEL JUGADOR -->
+      <section class="comp-lower-dynamic-deck">
+        <div class="comp-deck-tabs-bar">
+          <button type="button" class="comp-deck-tab active" data-deck-tab="spells">
+            <span>Espacios de Conjuro y Grimorio</span>
+          </button>
+          <button type="button" class="comp-deck-tab" data-deck-tab="turn">
+            <span>Guía de Turno</span>
+          </button>
+        </div>
+
+        <!-- SUB-VISTA 1: ESPACIOS DE CONJURO INTERCAMBIABLES POR NIVEL -->
+        <div id="comp-deck-panel-spells" class="comp-deck-panel active">
+          <div class="comp-spell-slots-toolbar">
+            <div id="comp-spell-level-pills" class="comp-spell-level-pills"></div>
+            <div class="comp-search-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+                <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="search" id="comp-player-search" placeholder="Buscar hechizo para equipar...">
+            </div>
+          </div>
+
+          <div class="comp-spells-workbench-2col">
+            <!-- ESPACIOS DE CONJURO DEL PERSONAJE (INTERCAMBIABLES) -->
+            <div id="comp-equipped-slots-box" class="comp-equipped-slots-box"></div>
+            <!-- CATÁLOGO DE HECHIZOS DISPONIBLES DE ESE NIVEL -->
+            <div id="comp-available-spells-box" class="comp-available-spells-box"></div>
+          </div>
+        </div>
+
+        <!-- SUB-VISTA 2: GUÍA INTERACTIVA DE TURNO DEL JUGADOR -->
+        <div id="comp-deck-panel-turn" class="comp-deck-panel">
+          <div id="comp-turn-guide-container"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- =======================================================================
+         PESTAÑA 2: LISTA DE MONSTRUOS Y TODO DE LOS LIBROS OFICIALES
+         ======================================================================= -->
+    <div id="comp-tab-panel-bestiary" class="comp-tab-panel">
+      <nav class="comp-sticky-subnav" aria-label="Índice del Bestiario y Libros">
+        <div class="comp-anchor-pills">
+          <span class="comp-anchor-label">Secciones:</span>
+          <a href="#comp-sec-monsters" class="comp-anchor-btn">1. Bestiario de Monstruos (Statblocks)</a>
+          <a href="#comp-sec-books" class="comp-anchor-btn">2. Manuales Oficiales D&amp;D</a>
+          <a href="#comp-sec-magic-items" class="comp-anchor-btn">3. Objetos Mágicos (DMG)</a>
+          <a href="#comp-sec-feats-rules" class="comp-anchor-btn">4. Dotes y Tablas Oficiales</a>
+        </div>
+        <div class="comp-bestiary-filters">
+          <select id="comp-monster-cr-filter" class="comp-filter-select">
+            <option value="all">Todos los CR (1/8 a 30)</option>
+            <option value="low">CR 1/8 a 1 (Niveles Bajos)</option>
+            <option value="mid">CR 2 a 5 (Mazmorras Medias)</option>
+            <option value="high">CR 7 a 13 (Jefes y Dragones)</option>
+            <option value="epic">CR 19 a 30 (Legendarios / Titanes)</option>
+          </select>
+          <div class="comp-search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="search" id="comp-bestiary-search"
+              placeholder="Buscar monstruo, libro, objeto mágico o dote...">
+          </div>
+        </div>
+      </nav>
+
+      <!-- SECCIÓN MONSTRUOS -->
+      <article id="comp-sec-monsters" class="comp-vertical-section">
+        <div class="comp-section-banner">
+          <div class="comp-section-num">M1</div>
+          <div>
+            <h2 class="comp-section-title">BESTIARIO OFICIAL DE MONSTRUOS (MONSTER MANUAL)</h2>
+            <p class="comp-section-desc">Bloques de estadísticas oficiales con CA, Puntos de Golpe, las 6
+              características, inmunidades, rasgos y botones para lanzar los ataques del monstruo en el Cofre y Dragón
+              de Dados.</p>
+          </div>
+        </div>
+        <div id="comp-monsters-grid" class="comp-cards-grid-2col"></div>
+      </article>
+
+      <!-- SECCIÓN LIBROS OFICIALES -->
+      <article id="comp-sec-books" class="comp-vertical-section">
+        <div class="comp-section-banner">
+          <div class="comp-section-num">L2</div>
+          <div>
+            <h2 class="comp-section-title">BIBLIOTECA DE LIBROS OFICIALES DE D&amp;D</h2>
+            <p class="comp-section-desc">Resumen de contenido y reglas clave de los manuales oficiales: Player's
+              Handbook, Monster Manual, Dungeon Master's Guide, Xanathar, Tasha y Mordenkainen.</p>
+          </div>
+        </div>
+        <div id="comp-books-grid" class="comp-cards-grid-2col"></div>
+      </article>
+
+      <!-- SECCIÓN OBJETOS MÁGICOS -->
+      <article id="comp-sec-magic-items" class="comp-vertical-section">
+        <div class="comp-section-banner">
+          <div class="comp-section-num">O3</div>
+          <div>
+            <h2 class="comp-section-title">TESOROS Y OBJETOS MÁGICOS EMBLEMÁTICOS (DMG)</h2>
+            <p class="comp-section-desc">Reliquias, armas encantadas, pociones y artefactos de la Guía del Dungeon
+              Master con sus reglas de sintonización.</p>
+          </div>
+        </div>
+        <div id="comp-magic-items-grid" class="comp-cards-grid-3col"></div>
+      </article>
+
+      <!-- SECCIÓN DOTES Y TABLAS DE REGLAS -->
+      <article id="comp-sec-feats-rules" class="comp-vertical-section">
+        <div class="comp-section-banner">
+          <div class="comp-section-num">R4</div>
+          <div>
+            <h2 class="comp-section-title">DOTES OFICIALES Y TABLAS DE REFERENCIA RÁPIDA</h2>
+            <p class="comp-section-desc">Dotes de Origen y Generales del PHB junto con las tablas oficiales de Clases de
+              Dificultad (CD), Cobertura y Sintonización.</p>
+          </div>
+        </div>
+        <div id="comp-feats-rules-container"></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- TOAST DE NOTIFICACIÓN -->
+  <div id="toast" class="toast">Ficha guardada exitosamente</div>
+
+  <!-- MODAL DE MESA DE DADOS: COFRE TRAGADADOS Y DRAGÓN FORJADOR -->
+  <div id="dice-modal" class="modal-overlay">
+    <div class="modal-content modal-dice-theatre">
+      <div class="modal-header">
+        <h3 class="modal-title">
+          <svg class="modal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2" />
+            <line x1="12" y1="22" x2="12" y2="15.5" />
+            <polyline points="22 8.5 12 15.5 2 8.5" />
+          </svg>
+          Cofre de Dados y Dragón Forjador
+        </h3>
+        <button type="button" id="btn-close-dice-modal" class="btn-icon-close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- VENTANA EMERGENTE DE SELECCIÓN DE DADOS (SALE DEL COFRE AL HACER CLIC) -->
+      <div id="chest-dice-popover" class="chest-dice-popover is-open">
+        <div class="chest-popover-header">
+          <span class="chest-popover-title">Elige qué dados se comerá el Cofre</span>
+          <span id="chest-popover-preview-badge" class="chest-popover-preview-badge">1d20</span>
+        </div>
+
+        <!-- 7 DADOS OFICIALES PARA ESCOGER -->
+        <div class="dice-buttons-grid">
+          <button type="button" class="btn-dice" data-die="4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+              <polygon points="12 3 21 20 3 20" />
+            </svg>
+            <span>d4</span>
+          </button>
+          <button type="button" class="btn-dice" data-die="6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+              <rect x="4" y="4" width="16" height="16" rx="2" />
+            </svg>
+            <span>d6</span>
+          </button>
+          <button type="button" class="btn-dice" data-die="8">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+              <polygon points="12 2 22 12 12 22 2 12" />
+            </svg>
+            <span>d8</span>
+          </button>
+          <button type="button" class="btn-dice" data-die="10">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+              <polygon points="12 2 21 10 12 22 3 10" />
+            </svg>
+            <span>d10</span>
+          </button>
+          <button type="button" class="btn-dice" data-die="12">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+              <polygon points="12 2 21 8.5 17.5 20 6.5 20 3 8.5" />
+            </svg>
+            <span>d12</span>
+          </button>
+          <button type="button" class="btn-dice highlight active-rolling" data-die="20">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+              <polygon points="12 2 21 7 21 17 12 22 3 17 3 7" />
+            </svg>
+            <span>d20</span>
+          </button>
+          <button type="button" class="btn-dice" data-die="100">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+              <circle cx="12" cy="12" r="9" />
+              <circle cx="12" cy="12" r="4" />
+            </svg>
+            <span>d100</span>
+          </button>
+        </div>
+
+        <!-- BOTONES PARA SUBIR O BAJAR LA CANTIDAD Y MODIFICADOR -->
+        <div class="chest-steppers-bar">
+          <div class="chest-stepper-group">
+            <label for="dice-count-input">Cantidad de Dados:</label>
+            <div class="chest-stepper-control">
+              <button type="button" id="btn-dice-count-dec" class="btn-chest-step"
+                title="Bajar cantidad de dados">&minus;</button>
+              <input type="number" id="dice-count-input" value="1" min="1" max="20" class="input-dice-count">
+              <button type="button" id="btn-dice-count-inc" class="btn-chest-step"
+                title="Subir cantidad de dados">+</button>
+            </div>
+          </div>
+
+          <div class="chest-stepper-group">
+            <label for="dice-mod-input">Modificador:</label>
+            <div class="chest-stepper-control">
+              <button type="button" id="btn-dice-mod-dec" class="btn-chest-step"
+                title="Bajar modificador">&minus;</button>
+              <input type="number" id="dice-mod-input" value="0" class="input-dice-mod">
+              <button type="button" id="btn-dice-mod-inc" class="btn-chest-step" title="Subir modificador">+</button>
+            </div>
+          </div>
+
+          <!-- SELECTOR DE VENTAJA / DESVENTAJA (D&D 5.5e) -->
+          <div class="dice-mode-selector">
+            <label class="mode-radio-label">
+              <input type="radio" name="dice-roll-mode" value="normal" checked>
+              <span>Normal</span>
+            </label>
+            <label class="mode-radio-label mode-advantage">
+              <input type="radio" name="dice-roll-mode" value="advantage">
+              <span>Ventaja</span>
+            </label>
+            <label class="mode-radio-label mode-disadvantage">
+              <input type="radio" name="dice-roll-mode" value="disadvantage">
+              <span>Desventaja</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- BOTÓN DE ACCIÓN: EL COFRE SE COME LOS DADOS Y LOS ESCUPE AL DRAGÓN -->
+        <button type="button" id="btn-feed-chest-launch" class="btn-feed-chest-launch">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+            <path d="M4 11h16a1 1 0 0 1 1 1v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a1 1 0 0 1 1-1z" />
+            <path d="M5 11V7a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v4" />
+            <rect x="10" y="9" width="4" height="4" rx="1" />
+          </svg>
+          <span id="feed-chest-btn-text">¡Dar al Cofre y Lanzar 1d20!</span>
+        </button>
+      </div>
+
+      <!-- ESCENARIO ANIMADO: COFRE QUE COME Y ESCUPE DADOS + DRAGÓN QUE LOS QUEMA + ESTALLIDO -->
+      <div id="dice-dragon-arena" class="dice-dragon-arena phase-idle"
+        title="Haz clic en el Cofre para elegir dados o en el escenario para repetir">
+        <!-- GUARDIÁN IZQUIERDO: DRAGÓN HERÁLDICO Y ALIENTO DE FUEGO (SVG PURO) -->
+        <div class="dragon-guardian-wrap" aria-hidden="true">
+          <svg class="dragon-guardian-svg" viewBox="0 0 220 130" fill="none">
+            <defs>
+              <linearGradient id="dragonScaleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#b91c1c" />
+                <stop offset="55%" stop-color="#991b1b" />
+                <stop offset="100%" stop-color="#7f1d1d" />
+              </linearGradient>
+              <linearGradient id="dragonHornGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#78350f" />
+                <stop offset="50%" stop-color="#d97706" />
+                <stop offset="100%" stop-color="#fef3c7" />
+              </linearGradient>
+              <linearGradient id="dragonFireGrad" x1="0%" y1="30%" x2="100%" y2="70%">
+                <stop offset="0%" stop-color="#fef08a" />
+                <stop offset="35%" stop-color="#f59e0b" />
+                <stop offset="75%" stop-color="#ea580c" />
+                <stop offset="100%" stop-color="#dc2626" stop-opacity="0.15" />
+              </linearGradient>
+            </defs>
+
+            <path class="dragon-crest" d="M8,118 C12,82 28,55 48,40 L34,34 L58,28 L46,18 L76,22 C65,45 55,80 54,118 Z"
+              fill="#991b1b" opacity="0.25" />
+
+            <g class="dragon-head-upper">
+              <path d="M56,34 C34,20 16,12 4,6 C22,22 36,34 48,45 Z" fill="url(#dragonHornGrad)" stroke="#78350f"
+                stroke-width="1.2" />
+              <path d="M64,26 C46,12 30,4 16,2 C32,14 45,25 54,35 Z" fill="url(#dragonHornGrad)" stroke="#78350f"
+                stroke-width="1.2" />
+              <path
+                d="M22,95 C26,64 42,42 62,30 L82,25 L98,32 L124,36 L134,44 L126,52 L116,50 L112,55 L104,51 L96,55 L86,52 L72,56 L58,88 Z"
+                fill="url(#dragonScaleGrad)" stroke="#450a0a" stroke-width="1.8" stroke-linejoin="round" />
+              <polygon points="122,51 125,60 128,52" fill="#fffbeb" />
+              <polygon points="111,51 114,59 117,51" fill="#fffbeb" />
+              <polygon points="99,52 101,58 104,52" fill="#fffbeb" />
+              <polygon class="dragon-eye-glow" points="78,38 91,36 86,44 76,43" fill="#fef08a" stroke="#78350f"
+                stroke-width="1" />
+              <polygon points="83,37 86,37 85,43 82,43" fill="#991b1b" />
+            </g>
+
+            <g class="dragon-jaw-lower">
+              <path d="M54,64 L76,58 L96,62 L118,60 L126,65 L112,74 L84,74 L62,88 Z" fill="#7f1d1d" stroke="#450a0a"
+                stroke-width="1.6" stroke-linejoin="round" />
+              <polygon points="118,61 121,54 123,62" fill="#fffbeb" />
+              <polygon points="105,61 108,55 110,61" fill="#fffbeb" />
+            </g>
+
+            <g class="dragon-fire-stream">
+              <path class="flame-tongue-outer"
+                d="M116,52 C148,44 182,42 218,58 C196,74 188,92 216,106 C176,102 144,82 114,62 Z"
+                fill="url(#dragonFireGrad)" />
+              <path class="flame-tongue-mid"
+                d="M118,54 C146,50 176,54 206,68 C184,78 178,88 198,96 C168,90 142,74 116,60 Z" fill="#f59e0b"
+                opacity="0.88" />
+              <path class="flame-tongue-core" d="M120,56 C142,55 165,60 188,72 C166,78 144,70 118,59 Z"
+                fill="#fef08a" />
+            </g>
+          </svg>
+        </div>
+
+        <!-- GUARDIÁN DERECHO INTERACTIVO: EL COFRE DE DADOS (COME Y ESCUPE DADOS AL DRAGÓN) -->
+        <button type="button" id="btn-chest-stage-trigger" class="chest-guardian-wrap"
+          title="Haz clic en el Cofre para abrir la selección de dados">
+          <svg class="chest-guardian-svg" viewBox="0 0 140 120" fill="none">
+            <!-- Interior / Boca del Cofre (se ve cuando abre la tapa para comer o escupir) -->
+            <g class="chest-mouth-interior">
+              <rect x="24" y="42" width="92" height="28" rx="4" fill="#450a0a" stroke="#78350f" stroke-width="2" />
+              <!-- Dientes / Engastes dorados del cofre y destello interno -->
+              <polygon points="34,44 40,54 46,44" fill="#fef3c7" />
+              <polygon points="54,44 60,55 66,44" fill="#fef3c7" />
+              <polygon points="74,44 80,55 86,44" fill="#fef3c7" />
+              <polygon points="94,44 100,54 106,44" fill="#fef3c7" />
+              <circle cx="70" cy="58" r="10" fill="#f59e0b" opacity="0.45" />
+            </g>
+
+            <!-- Dados miniatura siendo tragados por el cofre (visibles en phase-eating) -->
+            <g class="chest-swallowed-dice-group">
+              <polygon points="52,18 66,26 60,40 44,36" fill="#fffbeb" stroke="#991b1b" stroke-width="2" />
+              <polygon points="84,14 98,24 90,38 76,32" fill="#fef08a" stroke="#d97706" stroke-width="2" />
+            </g>
+
+            <!-- Tapa Superior Articulada del Cofre (abre en bisagra derecha para escupir hacia la izquierda) -->
+            <g class="chest-lid-articulated">
+              <path d="M18,52 C18,28 36,18 70,18 C104,18 122,28 122,52 Z" fill="#92400e" stroke="#451a03"
+                stroke-width="2.2" stroke-linejoin="round" />
+              <!-- Bandas de Oro de la Tapa -->
+              <path d="M36,21 L36,52 M104,21 L104,52" stroke="#f59e0b" stroke-width="5" stroke-linecap="round" />
+              <rect x="16" y="47" width="108" height="6" rx="2" fill="#d97706" stroke="#78350f" stroke-width="1.5" />
+            </g>
+
+            <!-- Base de Madera y Oro del Cofre -->
+            <g class="chest-base-box">
+              <rect x="20" y="53" width="100" height="46" rx="5" fill="#78350f" stroke="#451a03" stroke-width="2.2" />
+              <rect x="26" y="59" width="88" height="34" rx="3" fill="#92400e" />
+              <!-- Herrajes Dorados Laterales -->
+              <rect x="33" y="53" width="7" height="46" fill="#f59e0b" stroke="#78350f" stroke-width="1.2" />
+              <rect x="100" y="53" width="7" height="46" fill="#f59e0b" stroke="#78350f" stroke-width="1.2" />
+              <!-- Escudo / Cerradura Central de Oro -->
+              <path d="M60,48 L80,48 L80,66 L70,74 L60,66 Z" fill="#fbbf24" stroke="#78350f" stroke-width="1.8"
+                stroke-linejoin="round" />
+              <circle cx="70" cy="58" r="3" fill="#451a03" />
+              <path d="M68,60 L72,60 L73,67 L67,67 Z" fill="#451a03" />
+            </g>
+          </svg>
+          <span class="chest-stage-label" id="chest-stage-label">Elegir Dados</span>
+        </button>
+
+        <!-- ACTORES 3D: DE 1 A 4 DADOS POLIÉDRICOS QUE EL COFRE ESCUPE AL DRAGÓN -->
+        <div class="die-3d-stage" aria-hidden="true">
+          <div class="die-burn-halo"></div>
+          <div id="multi-dice-actors-wrap" class="multi-dice-actors-wrap" data-visual-count="1"></div>
+          <!-- Partículas de brasas cuando el dragón incinera los dados -->
+          <div id="dice-embers-layer" class="dice-embers-layer"></div>
+        </div>
+
+        <!-- REVELACIÓN DEL RESULTADO FORJADO Y ESTALLIDO UNO A UNO -->
+        <div class="dice-result-card" id="dice-result-card">
+          <span class="dice-result-formula" id="dice-result-formula">Haz clic en el Cofre para elegir dados</span>
+          <div id="dice-burst-sequence" class="dice-burst-sequence"></div>
+          <div class="forged-number-seal" id="forged-number-seal">
+            <span class="dice-result-number" id="dice-result-number">--</span>
+          </div>
+          <span class="dice-result-detail" id="dice-result-detail">El Cofre se los comerá y los escupirá al
+            Dragón</span>
+          <div id="dice-result-banner" class="dice-result-banner" style="display: none;"></div>
+        </div>
+
+        <div class="dragon-stage-caption" id="dragon-stage-caption">
+          Pulsa el Cofre para cambiar dados o haz clic aquí para volver a lanzar
+        </div>
+      </div>
+
+      <!-- HISTORIAL DE TIRADAS RECIENTES -->
+      <div id="dice-history-strip" class="dice-history-strip"></div>
+    </div>
+  </div>
+
+  <!-- MODAL DE DESCANSO CORTO -->
+  <div id="short-rest-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Descanso Corto (Short Rest)</h3>
+        <button type="button" class="btn-icon-close modal-close-btn">&times;</button>
+      </div>
+      <p class="modal-lead">Gasta Dados de Golpe para curarte. Cada dado tirado sumará tu modificador de Constitución.
+      </p>
+      <div class="short-rest-box">
+        <div class="rest-stat-row">
+          <span>Dados Disponibles: <strong id="sr-hd-available">0</strong></span>
+          <span>Tipo de Dado: <strong id="sr-hd-type">d8</strong></span>
+          <span>Mod. Constitución: <strong id="sr-con-mod">+0</strong></span>
+        </div>
+        <div class="rest-action-row">
+          <label for="sr-dice-count">Gastar dados:</label>
+          <input type="number" id="sr-dice-count" min="1" value="1" class="input-dice-count">
+          <button type="button" id="btn-execute-short-rest" class="btn btn-primary">Tirar y Curar</button>
+        </div>
+        <div id="sr-result-box" class="rest-result-box" style="display: none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE ASISTENTE ASI Y ATRIBUTOS (5.5e) -->
+  <div id="asi-modal" class="modal-overlay">
+    <div class="modal-content modal-content-wide">
+      <div class="modal-header">
+        <h3 class="modal-title">Asignador y Calculadora de Atributos (5.5e)</h3>
+        <button type="button" class="btn-icon-close modal-close-btn">&times;</button>
+      </div>
+
+      <!-- BONO DE TRASFONDO Y REGLAS 5.5e -->
+      <div class="attr-bg-bonus-box">
+        <div class="attr-bg-bonus-header">
+          <span class="attr-bg-badge">Reglas 5.5e</span>
+          <span class="attr-bg-name-text">Trasfondo: <strong id="attr-calc-bg-name">Trasfondo (5.5e)</strong></span>
+        </div>
+        <div class="attr-bg-options-row">
+          <label class="attr-radio-label">
+            <input type="radio" name="attr-bg-split" value="2-1" checked>
+            <span>Repartir +2 a uno y +1 a otro</span>
+          </label>
+          <label class="attr-radio-label">
+            <input type="radio" name="attr-bg-split" value="1-1-1">
+            <span>Repartir +1 a tres características</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- PESTAÑAS DE MÉTODO -->
+      <div class="attr-calc-methods-bar">
+        <button type="button" class="attr-method-btn active" data-method="pointbuy">
+          <span>Compra por 27 Puntos</span>
+          <small>Point Buy oficial (coste 8 a 15)</small>
+        </button>
+        <button type="button" class="attr-method-btn" data-method="standard">
+          <span>Conjunto Estándar</span>
+          <small>15, 14, 13, 12, 10, 8 (con presets)</small>
+        </button>
+        <button type="button" class="attr-method-btn" data-method="roll4d6">
+          <span>Tiradas 4d6</span>
+          <small>4d6 descartando el menor</small>
+        </button>
+        <button type="button" class="attr-method-btn" data-method="manual">
+          <span>Ajuste Libre</span>
+          <small>Edición manual personalizada</small>
+        </button>
+      </div>
+
+      <!-- ÁREA DINÁMICA DE CONTROLES POR MÉTODO -->
+      <div id="attr-method-control-area" class="attr-method-control-area"></div>
+
+      <!-- TABLA INTERACTIVA DE LAS 6 CARACTERÍSTICAS -->
+      <div class="attr-interactive-grid-table">
+        <div class="attr-grid-head">
+          <div>Característica</div>
+          <div>Puntaje Base</div>
+          <div>Bono Trasfondo</div>
+          <div>Total Ficha</div>
+          <div>Modificador</div>
+        </div>
+        <div id="attr-calc-rows-container"></div>
+      </div>
+
+      <!-- PIE Y ACCIONES -->
+      <div class="attr-calc-footer">
+        <div id="attr-calc-summary-pills" class="attr-calc-summary-pills"></div>
+        <div class="attr-calc-actions">
+          <button type="button" class="btn btn-outline modal-close-btn">Cancelar</button>
+          <button type="button" id="btn-save-attributes-to-sheet" class="btn btn-primary">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Guardar en Ficha
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE COMPENDIO DE ARMAS -->
+  <div id="compendium-weapon-modal" class="modal-overlay">
+    <div class="modal-content modal-content-wide">
+      <div class="modal-header">
+        <h3 class="modal-title">Compendio de Armas Oficiales 5.5e (2024)</h3>
+        <button type="button" class="btn-icon-close modal-close-btn">&times;</button>
+      </div>
+      <p class="modal-lead">Selecciona un arma para añadirla directamente a tu tabla de ataques:</p>
+      <div id="weapons-compendium-list" class="compendium-grid-list"></div>
+    </div>
+  </div>
+
+  <!-- MODAL DE COMPENDIO DE CONJUROS Y TRUCOS -->
+  <div id="compendium-spells-modal" class="modal-overlay">
+    <div class="modal-content modal-content-wide">
+      <div class="modal-header">
+        <h3 class="modal-title">Compendio de Conjuros y Trucos (5.5e)</h3>
+        <button type="button" class="btn-icon-close modal-close-btn">&times;</button>
+      </div>
+      <div class="spells-compendium-filter-row">
+        <select id="comp-spell-lvl-filter" class="select-header">
+          <option value="all">Todos los Niveles</option>
+          <option value="0">Nivel 0 (Trucos)</option>
+          <option value="1">Nivel 1</option>
+          <option value="2">Nivel 2</option>
+          <option value="3">Nivel 3</option>
+        </select>
+        <select id="comp-spell-origin-tag" class="select-header" title="Origen del conjuro">
+          <option value="class">Origen: Clase</option>
+          <option value="species">Origen: Raza / Especie</option>
+          <option value="background">Origen: Trasfondo</option>
+          <option value="manual">Manual / Otro</option>
+        </select>
+      </div>
+      <div id="spells-compendium-list" class="compendium-grid-list"></div>
+    </div>
+  </div>
+
+  <!-- MODAL ASISTENTE GUIADO DE SUBIDA DE NIVEL POR CLASE (5.5e) -->
+  <div id="levelup-wizard-modal" class="modal-overlay">
+    <div class="modal-content modal-content-wide levelup-wizard-card">
+      <div class="modal-header">
+        <div>
+          <span class="lvlup-modal-kicker">SISTEMA DE PROGRESIÓN OFICIAL D&amp;D 5.5e</span>
+          <h3 class="modal-title">Asistente de Subida de Nivel por Clase</h3>
+        </div>
+        <button type="button" class="btn-icon-close modal-close-btn">&times;</button>
+      </div>
+      <div id="levelup-wizard-body" class="levelup-wizard-body"></div>
+      <div class="attr-calc-footer">
+        <div class="lvlup-footer-hint">Al confirmar se sumarán los Puntos de Golpe, se activarán los rasgos de tu nivel y subclase, y se guardará tu ficha.</div>
+        <div class="attr-calc-actions">
+          <button type="button" class="btn btn-outline modal-close-btn">Cancelar</button>
+          <button type="button" id="btn-confirm-levelup-wizard" class="btn btn-primary">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Confirmar Subida de Nivel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 1: TABLÓN DE CONTRATOS DEL GREMIO DE AVENTUREROS (IDEA #1) -->
+  <div id="guild-quests-modal" class="modal-overlay">
+    <div class="modal-content modal-content-wide guild-board-modal-card">
+      <div class="modal-header">
+        <div>
+          <span class="lvlup-modal-kicker">GREMIO OFICIAL DE AVENTUREROS · RECOMPENSAS EN XP Y ORO</span>
+          <h3 class="modal-title">Tablón de Misiones y Contratos de Caza</h3>
+        </div>
+        <button type="button" class="btn-icon-close modal-close-btn">&times;</button>
+      </div>
+      <p class="modal-lead">Elige un contrato acorde a tu Rango de Aventurero. Puedes <strong>Combatir en la Arena</strong> turno por turno contra la criatura o reclamar la misión completada para sumar <strong>+1 Misión</strong>, <strong>+XP</strong> y <strong>+Monedas de Oro (PO)</strong> automáticamente.</p>
+      <div id="guild-quests-grid" class="guild-quests-grid"></div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: TIENDA DEL MERCADER, ARMERÍA Y PAQUETES INICIALES (IDEA #4) -->
+  <div id="merchant-shop-modal" class="modal-overlay">
+    <div class="modal-content modal-content-wide merchant-shop-modal-card">
+      <div class="modal-header">
+        <div>
+          <span class="lvlup-modal-kicker">ECONOMÍA ACTIVA EN MONEDAS DE ORO (PO) · RECÁLCULO AUTOMÁTICO DE CA</span>
+          <h3 class="modal-title">Armería Real y Tienda del Mercader</h3>
+        </div>
+        <button type="button" class="btn-icon-close modal-close-btn">&times;</button>
+      </div>
+      <div class="merchant-top-bar">
+        <div class="merchant-gold-box">
+          <span class="merchant-gold-label">TU BOLSA DE ORO:</span>
+          <strong id="merchant-player-gold-badge" class="merchant-gold-badge">0 PO disponibles</strong>
+        </div>
+        <button type="button" id="btn-shop-starter-pack" class="btn btn-secondary">
+          Equipar Paquete Inicial de mi Clase Gratis (1 Clic)
+        </button>
+      </div>
+      <div class="merchant-cat-tabs">
+        <button type="button" class="merchant-cat-btn active" data-shop-cat="all">Todo el Catálogo</button>
+        <button type="button" class="merchant-cat-btn" data-shop-cat="Pociones">Pociones</button>
+        <button type="button" class="merchant-cat-btn" data-shop-cat="Armaduras">Armaduras y Escudos</button>
+        <button type="button" class="merchant-cat-btn" data-shop-cat="Armas">Armas y Reliquias</button>
+        <button type="button" class="merchant-cat-btn" data-shop-cat="Reliquias">Objetos Maravillosos</button>
+      </div>
+      <div id="merchant-shop-list" class="merchant-shop-grid"></div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: ARENA DE COMBATE INTERACTIVA (HÉROE VS. BESTIARIO) (IDEA #3) -->
+  <div id="arena-combat-modal" class="modal-overlay">
+    <div class="modal-content modal-content-wide arena-combat-modal-card">
+      <div class="modal-header">
+        <div>
+          <span class="lvlup-modal-kicker">SIMULADOR TÁCTICO POR TURNOS · D&amp;D 5.5e</span>
+          <h3 class="modal-title">Arena de Combate: Héroe vs. Bestiario</h3>
+        </div>
+        <button type="button" class="btn-icon-close modal-close-btn">&times;</button>
+      </div>
+      <div id="arena-combat-body" class="arena-combat-body"></div>
+    </div>
+  </div>
+
+  <!-- MODAL 4: CARNET OFICIAL DEL GREMIO EXPORTABLE EN PNG (IDEA #6) -->
+  <div id="guild-card-modal" class="modal-overlay">
+    <div class="modal-content modal-content-wide guild-card-modal-box">
+      <div class="modal-header">
+        <div>
+          <span class="lvlup-modal-kicker">CREDENCIAL OFICIAL DE AVENTURERO · ALTA RESOLUCIÓN</span>
+          <h3 class="modal-title">Carnet del Gremio de Aventureros (Exportable en PNG)</h3>
+        </div>
+        <button type="button" class="btn-icon-close modal-close-btn">&times;</button>
+      </div>
+      <div class="guild-card-canvas-wrap">
+        <canvas id="guild-card-canvas" width="880" height="500"></canvas>
+      </div>
+      <div class="attr-calc-footer">
+        <span class="lvlup-footer-hint">Tu credencial resume tus estadísticas, rango actual, misiones, oro y armas para compartir con tu mesa.</span>
+        <div class="attr-calc-actions">
+          <button type="button" class="btn btn-outline modal-close-btn">Cerrar</button>
+          <button type="button" id="btn-download-guild-card" class="btn btn-primary">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Descargar Imagen PNG
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERLAY DE LA GUÍA INTERACTIVA (SPOTLIGHT + PANEL LATERAL MOMENTÁNEO) -->
+  <div id="dnd-guide-overlay" class="dnd-guide-overlay no-print" style="display: none;">
+    <div id="dnd-guide-spotlight" class="dnd-guide-spotlight"></div>
+    <aside id="dnd-guide-panel" class="dnd-guide-side-panel no-print" aria-label="Guía Oficial D&D"></aside>
+  </div>
+
+  <script src="dnd_data_55e.js"></script>
+  <script src="dnd_levelup_data.js"></script>
+  <script src="dnd_guild_shop_data.js"></script>
+  <script src="dnd_compendium_data.js"></script>
+  <script src="dnd_bestiary_data.js"></script>
+  <script src="dnd_dice_roller.js"></script>
+  <script src="app.js"></script>
+  <script src="dnd_levelup.js"></script>
+  <script src="dnd_combat_resources.js"></script>
+  <script src="dnd_guild_and_shop.js"></script>
+  <script src="dnd_arena_combat.js"></script>
+  <script src="dnd_sidebar.js"></script>
+  <script src="dnd_attributes_calc.js"></script>
+  <script src="dnd_guide_data.js"></script>
+  <script src="dnd_guide.js"></script>
+  <script src="dnd_compendium_art.js"></script>
+  <script src="dnd_sprites_registry.js"></script>
+  <script src="dnd_anthropomorphic_shadow.js"></script>
+  <script src="dnd_compendium.js"></script>
+</body>
+
+</html>
